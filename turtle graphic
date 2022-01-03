@@ -1,0 +1,29 @@
+"""파일명: turtle graphic
+   작성자: koo-bon-sik  """
+
+import turtle
+
+width=int(input("width = ")) #가로
+length=int(input("length = ")) #세로
+
+turtle.setup(500,500) #set width and height of canvas
+t=turtle.Turtle()
+t.shape("turtle") #객체의 모양
+t.pencolor("red")
+t.width(10) 
+
+#t.up() : 터틀의 펜을 위로 들어 이동에 따른 그리기가 나타나지 않게 함
+#t.down() : 터틀의 펜을 위로 들어 이동에 따른 그리기가 나타나게 함
+#t.goto(x,y) : x,y로 이동 , canvas의 중심좌표로 부터
+t.up(); t.goto(-width/2, length/2); t.down() 
+
+count =0
+angle_turn= 360/4
+while count < 2:
+    t.forward(width)
+    t.right(angle_turn)
+    t.forward(length)
+    t.right(angle_turn)
+    count =count +1
+
+t.up(); t.goto(0,0); t.down()
