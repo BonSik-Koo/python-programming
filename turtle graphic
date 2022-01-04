@@ -27,3 +27,41 @@ while count < 2:
     count =count +1
 
 t.up(); t.goto(0,0); t.down()
+
+
+"""
+파일명: tutle graphic
+작성자: Koo-bon-sik
+<problem>
+정 삼각형의 한 변의 길이 (length)를 입력 받고, 터틀 그래픽 화면 중앙에 정삼각형을 그리는 파이썬 프로그램을 작성하라. 삼각형의 좌측 하단 꼭지점의 좌표를 정확하게 계산하여 출
+력하며, 터틀 그래픽의 중앙과 정 삼각형의 각 꼭지점 좌표를 터틀 객체의 write() 함수를 사용하여 출력할 것..
+"""
+import turtle
+import math
+turtle.setup(500,500)
+
+t=turtle.Turtle()
+t.shape('turtle')
+t.pencolor('red')
+t.width(10)
+
+length=int(input("input side length of triangle = "))
+t.up(); t.goto(-length/2,-((length/2)*math.tan(math.pi/6)))
+label=t.position() #현재 위치를 가져옴
+t.write(label) ;t.down() #canvos위에 좌표 표시
+print("x0, y0 = ",label )
+
+count =0
+angle=180/3 *2
+while count <3:
+    t.forward(length)
+    t.left(angle)#반시계 방향으로 각도만큼 
+    t.write(t.position())
+    count = count +1
+
+t.up()
+t.home() #중심좌표로 이동
+t.write(t.position()) #canvos위에 좌표 표시
+
+input("press any key to key") #키 입력시 tutle graphic 종료
+
