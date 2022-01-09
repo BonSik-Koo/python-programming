@@ -65,3 +65,45 @@ t.write(t.position()) #canvos위에 좌표 표시
 
 input("press any key to key") #키 입력시 tutle graphic 종료
 
+"""
+파일명: drawPolygon
+작성자: Koo-Bon_sic
+problem : 파이썬 터틀 그래픽 기능을 사용하여 지정된 위치에 지정된 크기 (한 변의 길이)의 다각형을 그리는 drawPolygon() 함수를 구현하라. 이 함수에 전달되는
+인수로는 중심 위치 (x좌표, y좌표), 다각형의 꼭지점 수, 다각형 한 변의 길이가 주어지도록 하라. 입력된 중심 위치와 다각형의 시작 위치 및 각 꼭지점
+에 붉은색 점 (dot)을 표시하고, 각 꼭지점의 좌표값을 출력하라.
+"""
+
+import turtle
+import math
+
+def drawPolgon(t, x ,y, dot_num, length):
+    t.penup(); t.goto(x,y) ; t.dot(10,"red")
+    t.write(t.position())
+    
+    angle= 360//dot_num
+    t.goto(-(length/2), -(length/2)*(math.tan(math.radians((540/5)/2)))) #; t.dot(10,"red")
+    t.pendown()
+    
+    for i in range(dot_num) :
+        t.forward(length)
+        t.left(angle)
+        t.dot(10,"red")
+        t.write(t.position())
+
+    t.penup(); t.goto(x,y); t.pendown()
+
+#setting
+t =turtle.Turtle()
+t.shape('classic')
+t.color('blue')
+t.width(10)
+
+dot_num,length = map(int,input("input dot_num, lengh:").split(' '))
+drawPolgon(t, 0, 0, dot_num, length)
+input("exit")
+
+    
+    
+
+          
+
